@@ -1,19 +1,23 @@
 import { Injectable } from '@nestjs/common';
 import { CreateItemDto } from './dto/create-item.dto';
 import { UpdateItemDto } from './dto/update-item.dto';
+import { Item } from './entities/item.entity';
 
 @Injectable()
 export class ItemsService {
-  create(createItemDto: CreateItemDto) {
-    return 'This action adds a new item';
+
+  constructor(private itemEntity: Item) {}
+  
+  create(item: CreateItemDto) {
+    return this.itemEntity.createItem(item);
   }
 
   findAll() {
-    return `This action returns all items`;
+    return this.itemEntity.findAllItems();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} item`;
+    return this.itemEntity.findItemById(id);
   }
 
   update(id: number, updateItemDto: UpdateItemDto) {
