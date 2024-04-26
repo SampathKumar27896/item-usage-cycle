@@ -1,12 +1,17 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Req, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 
-@Controller()
+@Controller('hello')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Get('world')
+  getHello(@Req() request) {
+    return {message: this.appService.getHello(), ip: request.ip};
+  }
+
+  @Post('world')
+  createHello(@Req() request) {
+    return {messge: "This is a post request for creating a greeting"}
   }
 }
