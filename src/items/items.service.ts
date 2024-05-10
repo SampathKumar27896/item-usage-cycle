@@ -21,10 +21,10 @@ export class ItemsService {
   }
 
   update(id: number, updateItemDto: UpdateItemDto) {
-    return `This action updates a #${id} item`;
+    return this.itemEntity.updateItemPartialById(id, updateItemDto);
   }
 
   remove(id: number) {
-    return `This action removes a #${id} item`;
+    return this.itemEntity.removeItemById(id);
   }
 }
