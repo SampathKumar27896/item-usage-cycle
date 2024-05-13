@@ -7,7 +7,8 @@
 
 - Show the number of times the clothes are used.
 
-  
+## Update -  10-May-2024
+- Added POST, GET, PATCH, Delete methods. Data stored only on Class variables.
 
 ## Topics covered -  26-Apr-2024
 
